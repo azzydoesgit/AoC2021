@@ -20,13 +20,14 @@ namespace home
 				string str = i.ToString();
 				fish.Add((ulong)stick.FindAll(x => x.Equals(str)).Count());
 			}
-			
 			//* Actual code below! Change numDays to see growth
 			int numDays = 256;
 
-			for (int i = 0; i < numDays; i++){
+			for (int i = 0; i < numDays; i++)
+			{
 				ulong[] dummyList = fish.ToArray();//Reference types sure are annoying...
-				for (int j = 0; j < 6; j++){
+				for (int j = 0; j < 6; j++)
+				{
 					fish[j] = dummyList[j + 1];// handles past ages 1-5
 				}
 				fish[6] = dummyList[7] + dummyList[0];//Age 7 moves to 6, ages 0 moves to six
@@ -36,10 +37,12 @@ namespace home
 			Console.WriteLine("Days: " + numDays + "  Fish: " + addUlong(fish));
 		}
 
-		static ulong addUlong(List<ulong> list){
+		static ulong addUlong(List<ulong> list)
+		{
 			ulong u = new ulong();
 			u = 0;
-			foreach (ulong uwu in list){
+			foreach (ulong uwu in list)
+			{
 				u += uwu;
 			}
 			return u;
